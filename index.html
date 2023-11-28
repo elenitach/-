@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ипотечный калькулятор</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Ипотечный калькулятор</h1>
+      <h2>Недвижимость</h2>
+      <form class="form__inputs">
+        <div class="form__side_left">
+          <div class="input-container">
+            <label for="price-number" class="input-label"
+              >Стоимость недвижимости</label
+            >
+            <div class="input-wrapper">
+              <input
+                class="input_type_number"
+                type="text"
+                name="price-number"
+                id="price-number"
+                data-field="price"
+              />
+              <span class="input-unit">₽</span>
+              <input
+                class="input_type_range"
+                type="range"
+                name="price-range"
+                data-field="price"
+                id="price-range"
+              />
+            </div>
+          </div>
+          <div class="input-container">
+            <label for="initial-fee-number" class="input-label"
+              >Первоначальный взнос</label
+            >
+            <div class="input-wrapper">
+              <input
+                class="input_type_number"
+                type="text"
+                name="initial-fee-number"
+                id="initial-fee-number"
+                data-field="initial-fee"
+              />
+              <span class="input-unit">₽</span>
+              <input
+                class="input_type_range"
+                type="range"
+                name="initial-fee-range"
+                data-field="initial-fee"
+                id="initial-fee-range"
+              />
+            </div>
+            <div class="options">
+              <button class="option" value="0" data-field="initial-fee">
+                0%
+              </button>
+              <button class="option" value="10" data-field="initial-fee">
+                10%
+              </button>
+              <button class="option" value="15" data-field="initial-fee">
+                15%
+              </button>
+              <button class="option" value="20" data-field="initial-fee">
+                20%
+              </button>
+              <button class="option" value="25" data-field="initial-fee">
+                25%
+              </button>
+              <button class="option" value="30" data-field="initial-fee">
+                30%
+              </button>
+            </div>
+          </div>
+          <div class="input-container">
+            <label for="credit-term-number" class="input-label"
+              >Срок кредита</label
+            >
+            <div class="input-wrapper">
+              <input
+                class="input_type_number"
+                type="text"
+                name="credit-term-number"
+                id="credit-term-number"
+                data-field="credit-term"
+              />
+              <span class="input-unit">Лет</span>
+              <input
+                class="input_type_range"
+                type="range"
+                name="credit-term-range"
+                data-field="credit-term"
+                id="credit-term-range"
+              />
+            </div>
+            <div class="options">
+              <button class="option" value="5" data-field="credit-term">
+                5 лет
+              </button>
+              <button class="option" value="10" data-field="credit-term">
+                10 лет
+              </button>
+              <button class="option" value="15" data-field="credit-term">
+                15 лет
+              </button>
+              <button class="option" value="20" data-field="credit-term">
+                20 лет
+              </button>
+            </div>
+          </div>
+          <div class="input-container">
+            <label for="percent-number" class="input-label"
+              >Процентная ставка</label
+            >
+            <div class="input-wrapper">
+              <input
+                class="input_type_number"
+                type="text"
+                name="percent-number"
+                id="percent-number"
+                data-field="percent"
+              />
+              <span class="input-unit">%</span>
+              <input
+                class="input_type_range"
+                type="range"
+                name="percent-range"
+                data-field="percent"
+                id="percent-range"
+              />
+            </div>
+            <div class="options">
+              <button class="option" value="0.1" data-field="percent">
+                0,1%
+              </button>
+              <button class="option" value="4.5" data-field="percent">
+                4,5%
+              </button>
+              <button class="option" value="6" data-field="percent">6%</button>
+              <button class="option" value="7" data-field="percent">7%</button>
+              <button class="option" value="7.5" data-field="percent">
+                7,5%
+              </button>
+              <button class="option" value="9.1" data-field="percent">
+                9,1%
+              </button>
+              <button class="option" value="10" data-field="percent">
+                10%
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="form__side_right">
+          <div class="monthly-payment">
+            <div class="monthly-payment__sum">
+              <span class="value"></span>&nbsp;₽
+            </div>
+            <div class="monthly-payment__text">Ваш ежемесячный платеж</div>
+            <div class="monthly-payment__download-button">
+              <img src="img/download.png" />
+            </div>
+          </div>
+          <div class="payment">
+            <div class="payment__item">
+              <div class="payment__category">Кредит</div>
+              <div class="ellipsis"></div>
+              <div class="payment__sum credit">
+                <span class="value"></span>&nbsp;₽
+              </div>
+            </div>
+            <div class="payment__item">
+              <div class="payment__category">Проценты</div>
+              <div class="ellipsis"></div>
+              <div class="payment__sum percent">
+                <span class="value"></span>&nbsp;₽
+              </div>
+            </div>
+            <div class="payment__item">
+              <div class="payment__category">Проценты + кредит</div>
+              <div class="ellipsis"></div>
+              <div class="payment__sum percent_credit">
+                <span class="value"></span>&nbsp;₽
+              </div>
+            </div>
+            <div class="payment__item">
+              <div class="payment__category">Необходимый доход</div>
+              <div class="ellipsis"></div>
+              <div class="payment__sum income">
+                <span class="value"></span>&nbsp;₽
+              </div>
+            </div>
+          </div>
+          <button class="button button-outlined button-submit">
+            Вывести график платежей
+          </button>
+        </div>
+      </form>
+      <div class="action-buttons">
+        <button class="button button-primary">Подать заявку онлайн</button>
+        <button class="button button-link">Переслать себе на E-mail</button>
+      </div>
+      <div class="payments hidden">
+        <h2>График платежей</h2>
+        <table class="payments__table">
+            <thead>
+                <tr>
+                    <th>номер платежа</th>
+                    <th>дата платежа</th>
+                    <th>остаток долга</th>
+                    <th>в погашение долга</th>
+                    <th>в погашение процентов</th>
+                    <th>платеж</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3">всего</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
